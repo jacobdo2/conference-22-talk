@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Debug } from 'astro/components';
+import '../components/web';
+
 ---
 
 <script type="module" src={(await import("../components/web?url")).default}></script>
 <Layout title="Welcome to Astro.">
 	<main>
-		<Debug  ></Debug>
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<my-button></my-button>
+		<my-button ></my-button>
 	</main>
 </Layout>
 
