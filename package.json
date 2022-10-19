@@ -16,5 +16,6 @@
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
     "turbo": "latest"
-  }
+  },
+  "packageManager": "npm@8.19.2"
 }
