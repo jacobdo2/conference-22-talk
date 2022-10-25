@@ -1,35 +1,49 @@
-# Turborepo Svelte starter
+### Outline
 
-This is an official starter Turborepo.
+1. Intro
+- Introduce ourselves and what we do at DFDS
+- Read out the title
+- Describe the goal of our talk - to explore how frontend development in DFDS could look by applying some of the advantages offered by the frontend technology landscape (Keep it vague so we can surprise)
 
-## What's inside?
+2. Show our landing page
+- This is the new DFDS b2b UI
+- Mention that this was built using astro
 
-This Turborepo includes the following packages/apps:
+2. Astro https://astro.build/
+- What is Astro?
+- Island Architecture
+- How mature is Astro right now
+- Explain the benefits of Astro
 
-### Apps and Packages
+3. Show React component
+- Showcase how Astro is done in React
+- Point out to any differences in writing Astro e.g. the dashed line
 
-- `docs`: a [svelte-kit](https://kit.svelte.dev/) app
-- `web`: another [svelte-kit](https://kit.svelte.dev/) app
-- `ui`: a stub Svelte component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-plugin-svelte` and `eslint-config-prettier`)
+4. Solid component
+- Start out by not mentioning solid and just show jsx so it seems to be in a regular React component.
+- Then point out at some differences that you see on the screen e.g. `useSignal` and dependency-less `useEffect`.
+- Talk about the philosophy behind Solid
+- Showcase a feature in live code
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+5. Web components directly in Astro
+- What is a web component?
+- Rendering a web component in Astro
+- Talk about limitations of doing web components directly in Astro
 
-### Utilities
+6. Lit
+- Lit is a better way of doing web components
+- Showcase main lit features
+- Talk about how lit improves dev experience when doing web components
+- Talk about the fact that web components can be used not only in Astro but through other frameworks as well
+- Showcase our small lit component library
 
-This Turborepo has some additional tools already setup for you:
+7. Use web component directly in Solid or React
+- Proof of concept for an interoperable component library
+- Limitatioins
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx degit vercel/turborepo/examples/with-svelte with-svelte
-cd with-svelte
-yarn install
-git init . && git add . && git commit -m "Init"
-```
+8. Conclusions
+- Benefits
+  - Does not lock us into a single ecosystem
+  - Good for hiring
+  - Developers can be more explorative when selecting technologies
+  - TBC
