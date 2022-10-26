@@ -1,8 +1,7 @@
-
 import { css, html, LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 
-@customElement("ts-lit")
+@customElement('ts-lit')
 export default class MyElement extends LitElement {
   // Styles are scoped to this element: they won't conflict with styles
   // on the main page or in other components. Styling API can be exposed
@@ -18,15 +17,19 @@ export default class MyElement extends LitElement {
     }
   `;
 
-
   // Define reactive properties--updating a reactive property causes
   // the component to update.
   @property()
-  greeting = "Hello";
+  greeting = 'Hello';
 
-  @property({type: String})
-  planet = "World";
+  @state()
+  private _planet = 'World';
 
+  @property({ type: String })
+  set planet(planet: string) {
+    console.log("I'm updating the value");
+    this._planet = planet;
+  }
 
   // The render() method is called any time reactive properties change.
   // Return HTML in a string template literal tagged with the `html`
@@ -37,16 +40,14 @@ export default class MyElement extends LitElement {
     return html`
       <span @click=${this.togglePlanet}
         >${this.greeting}
-        <span class="planet">${this.planet}</span>
+        <span class="planet">${this._planet}</span>
       </span>
     `;
   }
 
-    // Event handlers can update the state of @properties on the element
+  // Event handlers can update the state of @properties on the element
   // instance, causing it to re-render
   togglePlanet() {
-    this.planet = this.planet === "World" ? "Mars" : "World";
+    this.planet = this._planet === 'World' ? 'Mars' : 'World';
   }
 }
-
-
