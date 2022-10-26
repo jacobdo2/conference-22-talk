@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit';
+import { html, LitElement } from 'lit';
 const tagName = 'js-lit';
 
 export default class MyElement extends LitElement {
@@ -18,7 +18,6 @@ export default class MyElement extends LitElement {
   }
   _increment(e) {
     this.count++;
-    console.log(`count ${this.count}`);
   }
 }
 

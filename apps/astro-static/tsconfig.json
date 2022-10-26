@@ -1,9 +1,13 @@
 {
-  "compilerOptions": {
-    "experimentalDecorators": true
-  },
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
+  },
+  "plugins": [
+    {
+      "name": "ts-lit-plugin",
+      "strict": true
+    }
+  ]
 }

@@ -1,15 +1,13 @@
 ---
+import { JSLit,TSLit } from "ui";
 import Layout from '../layouts/Layout.astro';
-import '../components/web';
-import TSLit from "../components/ts-lit"
-import JSlit from "../components/js-lit-element"
 ---
 <Layout title="Welcome to Astro.">
 	<main>
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<TSLit  ></TSLit>
-		<JSlit ></JSlit>
-		<my-button ></my-button>
+		<TSLit client:idle  ></TSLit>
+		<JSLit client:idle  ></JSLit>
+		<!-- <my-button ></my-button> -->
 	</main>
 </Layout>
 
