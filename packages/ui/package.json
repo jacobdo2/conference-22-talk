@@ -5,7 +5,9 @@
   "type": "module",
   "svelte": "index.ts",
   "license": "MIT",
-   "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/ui.umd.cjs",
   "module": "./dist/ui.js",
   "exports": {
@@ -15,7 +17,7 @@
     }
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build --watch",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "prettier --check --ignore-path=../../.prettierignore . && eslint .",
