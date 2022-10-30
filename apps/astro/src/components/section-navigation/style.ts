@@ -1,10 +1,10 @@
-import theme from '../../theme';
+import { theme } from 'ui';
 
 export const navigationStyle = {
   height: 50,
   display: 'flex',
   alignItems: 'center',
-  background: theme.groupBlue.primary,
+  background: theme.palette.groupBlue.primary,
   padding: 4
 };
 
@@ -19,14 +19,14 @@ export const navigationLinkContainer = {
 
 export const getNavigationLinkStyle = (isActive: boolean) => {
   const activeStyle = {
-    border: `1px solid ${theme.blue.primary}`,
+    border: `1px solid ${theme.palette.blue.primary}`,
     borderRadius: 2,
-    color: theme.blue.primary
+    color: theme.palette.blue.primary
   };
 
   const baseStyle = {
     alignItems: 'center',
-    color: theme.white.primary,
+    color: theme.palette.white.primary,
     display: 'flex',
     fontSize: 12,
     height: 24,

@@ -1,0 +1,59 @@
+---
+import { theme } from 'ui';
+
+export interface Props {
+  title: string;
+  caption: string;
+}
+
+const { title, caption } = Astro.props;
+---
+
+<header class="hero">
+  <div class="hero-column">
+    <h1 class="hero-title">{title}</h1>
+    <p class="hero-caption">{caption}</p>
+  </div>
+  <div class="hero-column">
+    <!-- Tracking form -->
+  </div>
+</header>
+<style
+  define:vars={{
+    height: `600px`,
+    maxColumnWidth: `${theme.sizing.containerWidth / 2}px`,
+    textColor: theme.palette.white.primary
+  }}
+>
+  .hero {
+    height: var(--height);
+    box-sizing: border-box;
+    background-image: url('/images/hero.png');
+    background-position: center center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, var(--maxColumnWidth)));
+    justify-content: center;
+  }
+
+  .hero-column {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    font-weight: lighter;
+    line-height: 2;
+    color: var(--textColor);
+    margin: 0;
+  }
+
+  .hero-caption {
+    margin: 0;
+    color: var(--textColor);
+    font-size: 20px;
+  }
+</style>
