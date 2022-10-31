@@ -13,9 +13,17 @@
 </script>
 
 <form on:submit|preventDefault="{handleSubmit}">
-  <InputField label="Shipment reference" name="shipment_reference" />
-  <InputField label="Destination" name="destination" />
-  <Button type="submit">Search</Button>
+  <InputField
+    label="Shipment reference"
+    name="shipment_reference"
+    assistiveText="Release number or booking ID"
+  />
+  <InputField
+    label="Destination"
+    name="destination"
+    assistiveText="Port of discharge or destination address postcode"
+  />
+  <Button style="align-self: flex-end" type="submit">Search</Button>
 </form>
 
 <style>
