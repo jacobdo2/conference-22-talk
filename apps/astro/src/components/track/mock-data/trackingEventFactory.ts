@@ -57,13 +57,21 @@ export const trackingEventFactory = Factory.Sync.makeFactory<TrackingEvent>(() =
 
 export const getTrackingEvents = (count: number, destination) => {
   const events = trackingEventFactory.buildList(count);
-  const startEvent = trackingEventFactory.build({ label: BookingStatus.BOOKED });
+  const randomCity = faker.address.cityName();
+  const startEvent = trackingEventFactory.build({
+    label: BookingStatus.BOOKED,
+    location: randomCity,
+    description: `Departed from ${randomCity}`
+  });
+  const capitalizedDestination =
+    destination.charAt(0).toUpperCase() + destination.slice(1).toLowerCase();
+  const endEvent = trackingEventFactory.build({
+    location: capitalizedDestination,
+    label: BookingStatus.UNLOADED_FROM_VESSEL,
+    description: `Arrived at ${capitalizedDestination}`
+  });
 
   // Remove the first and last random event and replace it with
   // Booked as the first and Unloaded from Vessel as the last one
-  return [
-    startEvent,
-    ...events.slice(1, -1),
-    trackingEventFactory.build({ location: destination, label: BookingStatus.UNLOADED_FROM_VESSEL })
-  ];
+  return [startEvent, ...events.slice(1, -1), endEvent].reverse();
 };

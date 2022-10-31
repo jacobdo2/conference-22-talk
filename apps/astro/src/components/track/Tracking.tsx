@@ -5,8 +5,8 @@ import { trackingFormStore } from '../../stores';
 import { getTrackingEvents } from './mock-data';
 import { TrackingEvent } from './mock-data/trackingEventFactory';
 
-function fetchRouteData({ shippingReference }): Promise<TrackingEvent[]> {
-  const events = getTrackingEvents(7, 'Riga');
+function fetchRouteData({ destination }): Promise<TrackingEvent[]> {
+  const events = getTrackingEvents(7, destination);
   return new Promise((resolve) => setTimeout(() => resolve(events), 1000));
 }
 
