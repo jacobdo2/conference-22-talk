@@ -1,0 +1,1 @@
+export { getTrackingEvents } from './trackingEventFactory';

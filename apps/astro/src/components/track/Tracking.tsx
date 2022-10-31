@@ -1,18 +1,13 @@
 /** @jsxImportSource solid-js */
 import { useStore } from '@nanostores/solid';
 import { createResource, For, Match, Switch } from 'solid-js';
-import { trackingFormStore } from '../stores';
-enum EventStatus {
-  LOADED = 'loaded'
-}
+import { trackingFormStore } from '../../stores';
+import { getTrackingEvents } from './mock-data';
+import { TrackingEvent } from './mock-data/trackingEventFactory';
 
-const data: Record<string, { eventStatus: EventStatus; port?: string }[]> = {
-  '1': [{ eventStatus: EventStatus.LOADED, port: 'Dover' }]
-};
-
-function fetchRouteData({ shippingReference }): Promise<typeof data['1']> {
-  console.log(shippingReference);
-  return new Promise((resolve) => setTimeout(() => resolve(data[shippingReference]), 1000));
+function fetchRouteData({ shippingReference }): Promise<TrackingEvent[]> {
+  const events = getTrackingEvents(7, 'Riga');
+  return new Promise((resolve) => setTimeout(() => resolve(events), 1000));
 }
 
 export function Tracking() {
@@ -31,7 +26,7 @@ export function Tracking() {
           <p>Loading....</p>
         </Match>
         <Match when={true}>
-          <For each={routeData()}>{(trackingEvent) => <p>{trackingEvent.port}</p>}</For>
+          <For each={routeData()}>{(trackingEvent) => <p>{trackingEvent.label}</p>}</For>
         </Match>
       </Switch>
     </div>

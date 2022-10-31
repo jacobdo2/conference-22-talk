@@ -1,6 +1,6 @@
 <script lang="ts">
   import { InputField, Button } from 'ui';
-  import { trackingFormStore } from '../stores';
+  import { trackingFormStore } from '../../stores';
 
   const handleSubmit = (event: SubmitEvent) => {
     const inputs = (event.target as HTMLFormElement).elements;
