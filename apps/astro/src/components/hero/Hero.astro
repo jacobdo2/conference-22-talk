@@ -1,5 +1,6 @@
 ---
 import { theme } from 'ui';
+import TrackingForm from '../tracking-form/TrackingForm.svelte';
 
 export interface Props {
   title: string;
@@ -15,7 +16,7 @@ const { title, caption } = Astro.props;
     <p class="hero-caption">{caption}</p>
   </div>
   <div class="hero-column">
-    <!-- Tracking form -->
+    <TrackingForm client:load />
   </div>
 </header>
 <style
