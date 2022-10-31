@@ -1,3 +1,5 @@
+/** @jsxImportSource react */
+
 import { CSSProperties } from 'react';
 import { getNavigationLinkStyle, navigationLinkContainer, navigationStyle } from './style';
 

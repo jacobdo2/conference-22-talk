@@ -11,7 +11,6 @@ export const navigationStyle = {
 export const navigationLinkContainer = {
   width: '100%',
   maxWidth: 1440,
-  heigth: '100%',
   margin: 'auto',
   display: 'flex',
   gap: 4

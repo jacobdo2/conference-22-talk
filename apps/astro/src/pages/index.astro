@@ -1,8 +1,10 @@
 ---
 import Hero from '../components/hero/Hero.astro';
+import Track from '../components/track';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
   <Hero title="Track & Trace" caption="Holistic logistics services at your fingertips" />
+  <Track client:idle />
 </Layout>

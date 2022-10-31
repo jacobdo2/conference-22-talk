@@ -1,14 +1,11 @@
+import image from '@astrojs/image';
 import lit from '@astrojs/lit';
 import react from '@astrojs/react';
+import solidJs from '@astrojs/solid-js';
+import svelte from '@astrojs/svelte';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-import svelte from '@astrojs/svelte';
-
-// https://astro.build/config
-import image from '@astrojs/image';
-
-// https://astro.build/config
 export default defineConfig({
-  integrations: [lit(), react(), svelte(), image()]
+  integrations: [solidJs(), lit(), react(), svelte(), image()]
 });
