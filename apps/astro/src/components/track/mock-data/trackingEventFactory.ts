@@ -1,28 +1,31 @@
-import * as Factory from 'factory.ts';
 import { faker } from '@faker-js/faker';
+import * as Factory from 'factory.ts';
 
 export enum BookingStatus {
   PENDING = 'Pending',
-  PRELIMINARY_BOOKED = 'PreliminaryBooked',
+  PRELIMINARY_BOOKED = 'Preliminary booked',
   BOOKED = 'Booked',
-  UNLOADED_FROM_VESSEL = 'UnloadedFromVessel',
-  CHECKED_IN = 'CheckedIn',
-  UNIT_ON_TERMINAL = 'UnitOnTerminal',
-  LOADED_ONTO_VESSEL = 'LoadedOntoVessel',
-  RECEIVED_AT_GATE = 'ReceivedAtGate',
-  RELEASED_FROM_GATE = 'ReleasedFromGate',
-  GATE_PASS_PRINTED = 'GatePassPrinted',
-  CHECKED_IN_GATE = 'CheckedInGate',
+  UNLOADED_FROM_VESSEL = 'Unloaded from vessel',
+  CHECKED_IN = 'Checked in',
+  UNIT_ON_TERMINAL = 'Unit on terminal',
+  LOADED_ONTO_VESSEL = 'Loaded onto vessel',
+  RECEIVED_AT_GATE = 'Received at gate',
+  RELEASED_FROM_GATE = 'Released from gate',
+  GATE_PASS_PRINTED = 'Gate pass printed',
+  CHECKED_IN_GATE = 'Checked in gate',
   CANCELLED = 'Cancelled',
-  READY_FOR_PICK_UP = 'ReadyForPickUp',
-  READY_FOR_DROP_OFF = 'ReadyForDropOff',
+  READY_FOR_PICK_UP = 'Ready for pickup',
+  READY_FOR_DROP_OFF = 'Ready for drop off',
   ARCHIVED = 'Archived',
   UNKNOWN = 'Unknown',
   UNSAVED = 'Unsaved',
-  REQUESTED = 'Requested'
+  REQUESTED = 'Requested',
+  LOADED = 'Loaded onto vessel'
 }
 
-const bookingStatuses = Object.values(BookingStatus);
+const bookingStatuses = Object.values(BookingStatus).filter(
+  (status) => ![BookingStatus.BOOKED, BookingStatus.UNLOADED_FROM_VESSEL].includes(status)
+);
 
 const VARIANTS = ['primary', 'neutral', 'success', 'warning', 'danger'] as const;
 type Variant = typeof VARIANTS[number];
@@ -60,6 +63,7 @@ export const getTrackingEvents = (count: number, destination) => {
   const randomCity = faker.address.cityName();
   const startEvent = trackingEventFactory.build({
     label: BookingStatus.BOOKED,
+    variant: 'primary',
     location: randomCity,
     description: `Departed from ${randomCity}`
   });
@@ -68,10 +72,12 @@ export const getTrackingEvents = (count: number, destination) => {
   const endEvent = trackingEventFactory.build({
     location: capitalizedDestination,
     label: BookingStatus.UNLOADED_FROM_VESSEL,
+    variant: 'success',
     description: `Arrived at ${capitalizedDestination}`
   });
 
   // Remove the first and last random event and replace it with
   // Booked as the first and Unloaded from Vessel as the last one
+
   return [startEvent, ...events.slice(1, -1), endEvent].reverse();
 };
