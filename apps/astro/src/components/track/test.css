@@ -1,3 +1,11 @@
+::root {
+  --primary: #002b45;
+  --neutral: #d9dfe3;
+  --success: #2ca968;
+  --warning: #f76900;
+  --danger: #c92332;
+}
+
 .line::before {
   content: ' ';
   height: 100%;
@@ -9,19 +17,19 @@
 }
 
 .primary::before {
-  background-color: #002b45;
+  background-color: var(--primary);
 }
 .neutral::before {
-  background-color: #d9dfe3;
+  background-color: var(--neutral);
 }
 .success::before {
-  background-color: #2ca968;
+  background-color: var(--success);
 }
 .warning::before {
-  background-color: #f76900;
+  background-color: var(--warning);
 }
 .danger::before {
-  background-color: #c92332;
+  background-color: var(--danger);
 }
 
 .lds-ellipsis {
@@ -36,7 +44,7 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #002b45;
+  background: var(--primary);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
