@@ -1,0 +1,25 @@
+.line::before {
+  content: ' ';
+  height: 100%;
+  width: 1px;
+  background-color: red;
+  top: 0;
+  left: 2.5em;
+  z-index: -1;
+}
+
+.primary::before {
+  background-color: #002b45;
+}
+.neutral::before {
+  background-color: #d9dfe3;
+}
+.success::before {
+  background-color: #2ca968;
+}
+.warning::before {
+  background-color: #f76900;
+}
+.danger::before {
+  background-color: #c92332;
+}
