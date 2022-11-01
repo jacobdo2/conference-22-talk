@@ -7,20 +7,20 @@
     DESTINATION = 'destination'
   }
 
-  let shippingReference = '132534543543';
+  let shipmentReference = '132534543543';
   let destination = 'Dover';
 
   const handleSubmit = () => {
-    if (!shippingReference || !destination) {
+    if (!shipmentReference || !destination) {
       return;
     }
 
     trackingFormStore.set({
-      shippingReference,
+      shipmentReference,
       destination
     });
 
-    shippingReference = destination = null;
+    shipmentReference = destination = null;
   };
 </script>
 
@@ -29,7 +29,7 @@
     label="Shipment reference"
     name="{FieldName.SHIPMENT_REFERENCE}"
     assistiveText="Release number or booking ID"
-    bind:value="{shippingReference}"
+    bind:value="{shipmentReference}"
     required
   />
   <InputField

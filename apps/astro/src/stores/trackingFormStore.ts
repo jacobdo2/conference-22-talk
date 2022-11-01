@@ -1,7 +1,7 @@
 import { atom } from 'nanostores';
 
 export interface TrackingParams {
-  shippingReference: string;
+  shipmentReference: string;
   destination: string;
 }
 

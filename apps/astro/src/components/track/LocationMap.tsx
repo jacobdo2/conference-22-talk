@@ -16,9 +16,9 @@ const fetchLocationCoords = async (location: string) => {
     }`
   );
 
-  const json = await resp.json();
+  const geocodedData = await resp.json();
 
-  return json;
+  return geocodedData.features[0].center;
 };
 
 export const LocationMap: Component<Props> = ({ location }) => {
@@ -32,8 +32,8 @@ export const LocationMap: Component<Props> = ({ location }) => {
       <Match when={true}>
         <MapGL
           style={{
-            height: '150px',
-            width: '400px',
+            height: '15em',
+            width: '40em',
             'border-radius': '16px'
           }}
           options={{
@@ -43,7 +43,7 @@ export const LocationMap: Component<Props> = ({ location }) => {
             attributionControl: false
           }}
           viewport={{
-            center: coords().features[0].center,
+            center: coords(),
             zoom: 11
           }}
         ></MapGL>
