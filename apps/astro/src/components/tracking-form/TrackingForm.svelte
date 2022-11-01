@@ -2,26 +2,41 @@
   import { InputField, Button } from 'ui';
   import { trackingFormStore } from '../../stores';
 
-  const handleSubmit = (event: SubmitEvent) => {
-    const inputs = (event.target as HTMLFormElement).elements;
+  enum FieldName {
+    SHIPMENT_REFERENCE = 'shipment_reference',
+    DESTINATION = 'destination'
+  }
+
+  let shippingReference, destination: string;
+
+  const handleSubmit = () => {
+    if (!shippingReference || !destination) {
+      return;
+    }
 
     trackingFormStore.set({
-      shippingReference: inputs['shipment_reference'].value,
-      destination: inputs['destination'].value
+      shippingReference,
+      destination
     });
+
+    shippingReference = destination = null;
   };
 </script>
 
 <form on:submit|preventDefault="{handleSubmit}">
   <InputField
     label="Shipment reference"
-    name="shipment_reference"
+    name="{FieldName.SHIPMENT_REFERENCE}"
     assistiveText="Release number or booking ID"
+    bind:value="{shippingReference}"
+    required
   />
   <InputField
     label="Destination"
-    name="destination"
+    name="{FieldName.DESTINATION}"
     assistiveText="Port of discharge or destination address postcode"
+    bind:value="{destination}"
+    required
   />
   <Button style="align-self: flex-end" type="submit">Search</Button>
 </form>

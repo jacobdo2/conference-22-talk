@@ -7,7 +7,8 @@ const theme = {
       primary: '#002B45'
     },
     blue: {
-      primary: '#3B98F1'
+      primary: '#3B98F1',
+      medium: '#6BB7F9'
     },
     white: {
       primary: '#FFFFFF'
@@ -17,6 +18,9 @@ const theme = {
         primary: '#000000',
         secondary: '#4D4E4C70'
       }
+    },
+    red: {
+      primary: '#C92332'
     }
   }
 };

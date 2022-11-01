@@ -4,17 +4,41 @@
   export let label: string;
   export let name: string;
   export let assistiveText: string = '';
+  export let value;
+  export let required;
+  let error: string;
+
+  const handleBlur = () => {
+    if (required && !value?.trim()) {
+      error = 'This field is required';
+    }
+  };
+
+  const handleKeyPress = () => {
+    error = null;
+  };
 </script>
 
 <div
   style="
   --labelColor: {theme.palette.groupBlue.primary};
   --inputTextColor: {theme.palette.text.dark.primary};
+  --errorColor: {theme.palette.red.primary};
 "
 >
   <label for="{name}">{label}</label>
-  <input type="text" name="{name}" />
-  <span>{assistiveText}</span>
+  <input
+    type="text"
+    name="{name}"
+    bind:value
+    on:blur="{handleBlur}"
+    on:keypress="{handleKeyPress}"
+  />
+  {#if error}
+    <span class:error>{error}</span>
+  {:else if assistiveText}
+    <span>{assistiveText}</span>
+  {/if}
 </div>
 
 <style>
@@ -50,5 +74,9 @@
     color: var(--labelColor);
     font-size: 10px;
     margin-bottom: 8px;
+  }
+
+  span.error {
+    color: var(--errorColor);
   }
 </style>

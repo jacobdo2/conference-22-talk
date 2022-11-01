@@ -9,6 +9,7 @@
 <button
   style="
     --defaultBackground: {theme.palette.blue.primary};
+    --focusBackground: {theme.palette.blue.medium};
     {$$props.style};
    "
   type="{type}"
@@ -31,5 +32,9 @@
     align-items: center;
     justify-content: center;
     font-size: 16px;
+  }
+
+  button:focus {
+    background: var(--focusBackground);
   }
 </style>
