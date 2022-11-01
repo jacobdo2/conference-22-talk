@@ -30,9 +30,6 @@ const theme = {
         secondary: '#4D4E4C70',
         blue: '#002B45'
       }
-    },
-    red: {
-      primary: '#C92332'
     }
   }
 };

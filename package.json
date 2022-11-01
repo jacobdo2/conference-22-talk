@@ -24,5 +24,9 @@
   "lint-staged": {
     "*": "prettier --write --ignore-unknown"
   },
-  "packageManager": "npm@8.19.2"
+  "packageManager": "npm@8.19.2",
+  "dependencies": {
+    "mapbox-gl": "^2.10.0",
+    "solid-map-gl": "^1.5.1"
+  }
 }

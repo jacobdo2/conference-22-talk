@@ -7,7 +7,8 @@
     DESTINATION = 'destination'
   }
 
-  let shippingReference, destination: string;
+  let shippingReference = '132534543543';
+  let destination = 'Dover';
 
   const handleSubmit = () => {
     if (!shippingReference || !destination) {

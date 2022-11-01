@@ -1,5 +1,6 @@
 /** @jsxImportSource solid-js */
 import { theme } from 'ui';
+import { LocationMap } from './LocationMap';
 import { TrackingEvent } from './mock-data/trackingEventFactory';
 import { infoWrapper, inlineBlock, labelStyle, listItemStyle, marginBottom } from './style';
 import './test.css';
@@ -21,7 +22,7 @@ function ShowDate({ date }: { date: Date }) {
   );
 }
 
-export function Event({ description, label, timestamp, variant }: TrackingEvent) {
+export function Event({ description, label, timestamp, variant, location }: TrackingEvent) {
   return (
     <li style={listItemStyle(variant)}>
       <div class={`line ${variant}`}></div>
@@ -30,6 +31,7 @@ export function Event({ description, label, timestamp, variant }: TrackingEvent)
         <div style={infoWrapper}>
           {description && <span style={marginBottom}>{description}</span>}
           <ShowDate date={timestamp} />
+          {location && <LocationMap location={location} />}
         </div>
       </div>
     </li>
