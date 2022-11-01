@@ -60,3 +60,24 @@ export const lineStyle = (variant) => `
   flex-grow: 1;
   border: 1px dashed ${variantToMuteColorMap[variant]};
 `;
+
+export const h3Style = {
+  'font-family': 'DFDS-Light, sans-serif',
+  'font-size': '2em',
+  color: theme.palette.groupBlue.primary,
+  margin: '0',
+  'line-height': '1.5'
+};
+
+export const pStyle = {
+  'font-family': 'DFDS-Light, sans-serif',
+  'font-size': '2.4em',
+  color: theme.palette.groupBlue.primary,
+  margin: '0 0 32px 0'
+};
+
+export const bold = {
+  'font-family': 'DFDS-Bold, sans-serif'
+};
+
+export const centerElement = `display:flex;width:100%;justify-content:center;`;

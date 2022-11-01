@@ -1,9 +1,9 @@
 /** @jsxImportSource solid-js */
 
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { Component, createResource, Match, Switch } from 'solid-js';
 import MapGL from 'solid-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-
+import { Loading } from './Loading';
 type Props = {
   /** City or other location that can be geocoded */
   location: string;
@@ -27,7 +27,7 @@ export const LocationMap: Component<Props> = ({ location }) => {
   return (
     <Switch>
       <Match when={coords.loading}>
-        <p>Loading....</p>
+        <Loading />
       </Match>
       <Match when={true}>
         <MapGL

@@ -5,8 +5,10 @@ import { theme } from 'ui';
 import { trackingFormStore } from '../../stores';
 import { TrackingParams } from '../../stores/trackingFormStore';
 import { Event } from './Event';
+import { Loading } from './Loading';
 import { getTrackingEvents } from './mock-data';
 import { TrackingEvent } from './mock-data/trackingEventFactory';
+import { bold, centerElement, h3Style, pStyle } from './style';
 
 const trackingContainerStyle = {
   display: 'grid',
@@ -32,36 +34,14 @@ export function Tracking() {
           <h3>Error {JSON.stringify(routeData)}</h3>;
         </Match>
         <Match when={routeData.loading}>
-          <p>Loading....</p>
+          <div style={centerElement}>
+            <Loading></Loading>
+          </div>
         </Match>
         <Match when={!!routeData()}>
-          <h3
-            style={{
-              'font-family': 'DFDS-Light, sans-serif',
-              'font-size': '2em',
-              color: theme.palette.groupBlue.primary,
-              margin: '0',
-              'line-height': '1.5'
-            }}
-          >
-            Shipment Reference
-          </h3>
-          <p
-            style={{
-              'font-family': 'DFDS-Light, sans-serif',
-              'font-size': '2.4em',
-              color: theme.palette.groupBlue.primary,
-              margin: '0 0 32px 0'
-            }}
-          >
-            #{' '}
-            <span
-              style={{
-                'font-family': 'DFDS-Bold, sans-serif'
-              }}
-            >
-              {trackingStore().shipmentReference}
-            </span>
+          <h3 style={h3Style}>Shipment Reference</h3>
+          <p style={pStyle}>
+            # <span style={bold}>{trackingStore().shipmentReference}</span>
           </p>
           <ul
             ref={(element) => {
