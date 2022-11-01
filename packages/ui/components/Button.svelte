@@ -20,6 +20,7 @@
 
 <style>
   button {
+    font-family: 'DFDS-Bold', sans-serif;
     height: 40px;
     padding: 10px 24px;
     background: var(--defaultBackground);

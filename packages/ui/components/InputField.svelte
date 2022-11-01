@@ -51,6 +51,7 @@
   }
 
   label {
+    font-family: 'DFDS-Regular', sans-serif;
     font-size: 16px;
     color: var(--labelColor);
     margin-bottom: 4px;
