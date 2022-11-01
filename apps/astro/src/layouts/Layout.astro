@@ -20,6 +20,30 @@ const { title } = Astro.props;
     <SectionNavigation />
     <slot />
     <style>
+      @font-face {
+        font-family: 'DFDS-Light';
+        src: url('/fonts/DFDS-Light.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'DFDS-Regular';
+        src: url('/fonts/DFDS-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'DFDS-Bold';
+        src: url('/fonts/DFDS-Reguler.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
       html {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 10px;
