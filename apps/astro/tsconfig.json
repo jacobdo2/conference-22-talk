@@ -3,7 +3,8 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   },
   "plugins": [
     {

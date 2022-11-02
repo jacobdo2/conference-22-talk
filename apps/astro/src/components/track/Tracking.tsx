@@ -1,11 +1,12 @@
 /** @jsxImportSource solid-js */
+
 import { useStore } from '@nanostores/solid';
 import { createResource, For, Match, Switch } from 'solid-js';
 import { theme } from 'ui';
 import { trackingFormStore } from '../../stores';
 import { TrackingParams } from '../../stores/trackingFormStore';
 import { Event } from './Event/Event';
-import { Loading } from './Loading';
+import { Loading } from './Loading/Loading';
 import { getTrackingEvents } from './mock-data';
 import { TrackingEvent } from './mock-data/trackingEventFactory';
 import { bold, centerElement, h3Style, pStyle } from './style';

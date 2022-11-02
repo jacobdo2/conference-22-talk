@@ -1,11 +1,10 @@
 /** @jsxImportSource solid-js */
-import { LitLabel, theme, variantToColorMap } from 'ui';
+import 'ui';
+import { theme, variantToColorMap } from 'ui';
 import { LocationMap } from '../LocationMap';
 import { TrackingEvent } from '../mock-data/trackingEventFactory';
 import { bulletStyle, infoWrapper, lineStyle, listItemStyle, marginBottom } from '../style';
 import './event.css';
-
-const lit = LitLabel;
 
 function getDate(date: Date) {
   const month = date.toLocaleString('en-US', {

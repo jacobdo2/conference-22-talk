@@ -1,4 +1,6 @@
 /** @jsxImportSource solid-js */
+
+import './loading.css';
 export function Loading() {
   return (
     <div class="lds-ellipsis">
