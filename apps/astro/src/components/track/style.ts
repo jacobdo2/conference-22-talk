@@ -1,14 +1,7 @@
-import { theme } from 'ui';
+import { theme, variantToColorMap } from 'ui';
 import { TrackingEvent } from './mock-data/trackingEventFactory';
 
 const palette = theme.palette;
-export const variantToColorMap: { [k in TrackingEvent['variant']]: string } = {
-  primary: palette.groupBlue.primary,
-  neutral: palette.groupBlue[24],
-  success: palette.green.primary,
-  warning: palette.orange.primary,
-  danger: palette.red.primary
-};
 
 export const variantToMuteColorMap: { [k in TrackingEvent['variant']]: string } = {
   primary: palette.groupBlue[15],

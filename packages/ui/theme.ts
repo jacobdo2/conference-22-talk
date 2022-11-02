@@ -35,5 +35,12 @@ const theme = {
     }
   }
 };
+export const variantToColorMap = {
+  primary: theme.palette.groupBlue.primary,
+  neutral: theme.palette.groupBlue[24],
+  success: theme.palette.green.primary,
+  warning: theme.palette.orange.primary,
+  danger: theme.palette.red.primary
+};
 
 export default theme;

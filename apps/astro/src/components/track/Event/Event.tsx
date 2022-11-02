@@ -1,17 +1,11 @@
 /** @jsxImportSource solid-js */
-import { theme } from 'ui';
-import { LocationMap } from './LocationMap';
-import { TrackingEvent } from './mock-data/trackingEventFactory';
-import {
-  infoWrapper,
-  labelStyle,
-  listItemStyle,
-  marginBottom,
-  bulletStyle,
-  variantToColorMap,
-  lineStyle
-} from './style';
-import './test.css';
+import { LitLabel, theme, variantToColorMap } from 'ui';
+import { LocationMap } from '../LocationMap';
+import { TrackingEvent } from '../mock-data/trackingEventFactory';
+import { bulletStyle, infoWrapper, lineStyle, listItemStyle, marginBottom } from '../style';
+import './event.css';
+
+const lit = LitLabel;
 
 function getDate(date: Date) {
   const month = date.toLocaleString('en-US', {
@@ -72,7 +66,7 @@ export function Event({ description, label, timestamp, variant, location, isFirs
           'margin-bottom': '2.4rem'
         }}
       >
-        <div style={labelStyle(variant)}>{label}</div>
+        <lit-label variant={variant} label={label}></lit-label>
         <div style={infoWrapper}>
           {description && (
             <span
